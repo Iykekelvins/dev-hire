@@ -4,6 +4,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background-color: $background;
 }
 
 a {
@@ -17,6 +18,15 @@ a {
 
 h1, h2, h3, h4, h5, h6, p{
   margin: 0;
+}
+
+h1{
+  font-size: 2rem;
+}
+
+h1, li{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
 }
 
 button {
@@ -48,4 +58,8 @@ button {
   width: 100%;
   margin-left: auto;
   margin-right: auto;  
+}
+
+.layout{
+  display: flex;
 }
