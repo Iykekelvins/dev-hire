@@ -23,7 +23,9 @@ const Sidebar = () => {
         {links.map((link) => (
             <li key={link.name}>
             <NavLink activeclassname="active" to={link.url} key={link.title}>
+              <div className="svg">
               {link.svg}
+              </div>
               <span> {link.title}</span>
             </NavLink>
             </li>

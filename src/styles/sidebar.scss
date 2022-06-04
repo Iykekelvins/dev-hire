@@ -24,17 +24,25 @@
                     left: 2.5rem;
                 }
             }
+            &:first-child{
+                svg{
+                    margin-left: 0.5rem;
+                }
+            }
             .active{
                 color: $greyscale-black;
-                svg{
+                .svg{
+                    @extend .flex-ac-jc;
                     background: $blue;
-                    padding: 0.62rem;
                     border-radius: 5px;
                     height: 30px;
                     width: 30px;
+                   padding: 0.5rem;
+                   svg {
+                    margin-left: 0;
                     path{
-                        filter: invert(100%) sepia(4%) saturate(7483%) hue-rotate(162deg) brightness(114%) contrast(105%);
-                    }
+                       stroke: $white;
+                   }}
                 }
                 &::after{
                     content: "";

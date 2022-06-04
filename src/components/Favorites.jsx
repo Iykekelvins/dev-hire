@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Card from './Card';
 
 const Favorites = () => {
   return (
-    <div>Favorites</div>
+    <section className="favorites">
+      <h1>Favorites</h1>
+      <div className="cards">
+        <Card/>
+      </div>
+    </section>
   )
 }
 

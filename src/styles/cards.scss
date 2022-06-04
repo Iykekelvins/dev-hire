@@ -1,0 +1,47 @@
+.cards{
+    margin-top: 4.5rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.125rem;
+    .card{
+        width: 238px;
+        height: 224px;
+        background: $white;
+        border-radius: 10px;
+        position: relative;
+        .header{
+            padding: 0.3rem 0.3rem;
+        }
+        .user{
+            margin-top: -2rem;
+            margin-left: 0.7rem
+        }
+        .svg-container{
+            @extend .flex-ac-jc;
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: $grey-2;
+            height: 35px;
+            width: 35px;
+            border-radius: 10px;
+        }
+        h2{
+            font-size: 0.7rem;
+        }
+        h3{
+            font-size: 0.625rem;
+            color: $grey-49;
+            font-weight: 400;
+            margin-top: 0.05rem;
+        }
+        button{
+            font-size: 0.7rem;
+            color: $blue;
+        }
+        &--footer{
+            @extend .flex-ac-jb;
+            padding: 0.5rem 0.7rem;
+        }
+    }
+}
