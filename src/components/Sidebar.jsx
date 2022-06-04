@@ -21,8 +21,8 @@ const Sidebar = () => {
         <h1>Dev<span>Hire</span></h1>
         <ul className="sidebar--links">
         {links.map((link) => (
-            <li key={link.name}>
-            <NavLink activeclassname="active" to={link.url} key={link.title}>
+            <li key={link.title}>
+            <NavLink activeclassname="active" to={link.url} >
               <div className="svg">
               {link.svg}
               </div>

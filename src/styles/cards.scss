@@ -11,10 +11,17 @@
         position: relative;
         .header{
             padding: 0.3rem 0.3rem;
+            width: 237px;
+            height: 139px;
+            border-radius: 10px;
+            object-fit: cover;
         }
         .user{
             margin-top: -2rem;
-            margin-left: 0.7rem
+            margin-left: 0.7rem;
+            height: 44px;
+            width: 44px;
+            border-radius: 100%
         }
         .svg-container{
             @extend .flex-ac-jc;
@@ -25,12 +32,19 @@
             height: 35px;
             width: 35px;
             border-radius: 10px;
+            &.active{
+                background: $white;
+                svg path{
+                    fill: $red
+                }
+            }
         }
         h2{
-            font-size: 0.7rem;
+            font-size: 1rem;
+            text-transform: capitalize;
         }
         h3{
-            font-size: 0.625rem;
+            font-size: 0.8rem;
             color: $grey-49;
             font-weight: 400;
             margin-top: 0.05rem;

@@ -1,20 +1,29 @@
 import React from 'react';
-import header from "../assets/image.png";
-import user from "../assets/user.png";
+import { useSelector, useDispatch } from 'react-redux';
+import { addToFav, selectFavorites } from '../redux/devsSlice';
 import {ReactComponent as HeartIcon} from "../svgs/heart-white.svg";
 
-const Card = () => {
+const Card = ({dev}) => {
+  const {_id} = dev;
+  const {service_photo, avatar, display_name, starting_from} = dev._source;
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavorites);
+  
   return (
     <article className='card'>
-        <img src={header} alt="header" className="header" />
-        <img src={user} alt="user" className="user" />
-        <div className="svg-container">
+        <img src={service_photo} alt="header" className="header" />
+        <img src={avatar} alt="user" className="user" />
+        <button className={ favorites.find(favorite => favorite._id === _id) ? "svg-container active" : "svg-container"}
+        onClick={()=> dispatch(addToFav(dev))}
+        >
         <HeartIcon/>
-        </div>
+        </button
+        
+        >
         <div className="card--footer">
         <div>
-            <h2>Wale Davies</h2>
-            <h3>₦30,000</h3>
+            <h2>{display_name}</h2>
+            <h3>{starting_from}</h3>
         </div>
         <button>Hire</button>
         </div>

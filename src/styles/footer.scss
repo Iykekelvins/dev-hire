@@ -1,0 +1,51 @@
+.footer{
+    @extend .flex-ac-jb;
+    position: relative;
+    h4{
+      color: $grey;
+      font-weight: 400;
+      font-size: 0.875rem
+    }
+    .dropdown{
+        @extend .flex-ac-jb;
+        border: 1px solid $border;
+        width: 167px;
+        height: 42px;
+        border-radius: 6px;
+        padding: 0.25rem 1.25rem;
+        cursor: pointer;
+        &--info{
+            @extend .flex-ac;
+            gap: 0.75rem;
+            img{
+                height: 10px;
+                width: 15px;
+            }
+        }
+    }
+
+    .options{
+        width: 167px;
+        background: $white;
+        height: 200px;
+        overflow: auto;
+        padding: 1rem 0 0 0.5rem;
+        -ms-overflow-style: none;  
+        scrollbar-width: none;  
+        position: absolute;
+        article{
+            @extend .flex-ac;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s linear;
+            img{
+                height: 10px;
+                width: 15px;
+            }
+            &:hover{
+                background: $background;
+            }
+        }
+    }
+  }

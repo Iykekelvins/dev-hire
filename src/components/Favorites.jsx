@@ -1,18 +1,26 @@
 import React from 'react';
 import Card from './Card';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { selectNumber, addNumber } from '../redux/devsSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectFavorites } from '../redux/devsSlice';
 
 const Favorites = () => {
-  // const dispatch = useDispatch();
-  // const number = useSelector();
+  const favorites = useSelector(selectFavorites);
 
   return (
     <section className="favorites">
       <h1>Favorites</h1>
+      {
+        favorites.length === 0 ? 
+        <h2>No favorite developers yet...</h2>
+        :
       <div className="cards">
-        <Card/>
+        {
+          favorites.map(favorite => (
+            <Card dev={favorite} key={favorite._id} />
+          ))
+        }
       </div>
+      }
     </section>
   )
 }
