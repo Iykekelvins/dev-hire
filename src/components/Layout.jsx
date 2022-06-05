@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
 import { ReactComponent as MenuIcon } from '../assets/svgs/menu.svg';
