@@ -16,7 +16,6 @@ export const fetchDevs = createAsyncThunk('devs/fetchDevs', async () => {
     return res.data.data.service_search_results.hits;
 }) 
 
-localStorage.clear();
 
 export const devsSlice = createSlice({
     name: "devs",
@@ -30,6 +29,7 @@ export const devsSlice = createSlice({
                     position: "top-center",
                     theme: "colored",
                 });
+                localStorage.setItem("favorites", JSON.stringify(state.favorites));
             }
             else{
                 state.favorites = state.favorites.filter(item => item._id !== action.payload._id)
