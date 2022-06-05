@@ -58,7 +58,7 @@
             @extend .flex-ac-jb;
             padding: 0.5rem 0.7rem;
         }
-        @include media("<=480"){
+        @include media("<=800px"){
             width: 100%;
         }
     }

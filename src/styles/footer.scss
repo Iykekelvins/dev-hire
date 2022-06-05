@@ -29,12 +29,13 @@
     .options{
         width: 167px;
         background: $white;
-        height: 200px;
         overflow: auto;
         padding: 1rem 0 0 0.5rem;
         -ms-overflow-style: none;  
         scrollbar-width: none;  
         position: absolute;
+        bottom: 0;
+        
         article{
             @extend .flex-ac;
             gap: 0.75rem;

@@ -5,7 +5,7 @@ import {fetchCurrencies, switchCurrency} from "../redux/currencySlice";
 import { ReactComponent as DropIcon } from '../svgs/carret.svg';
 import nigeria from "../assets/nigeria.png";
 
-const Footer = () => {
+const Footer = ({showOptions, setShowOptions}) => {
     const dispatch = useDispatch();
     const year = new Date().getFullYear();
     const  currencies = useSelector(selectAllCurrency);
@@ -19,7 +19,6 @@ const Footer = () => {
         name:"Naira"
     })
 
-    const [showOptions, setShowOptions] = useState(false);
 
     useEffect(()=>{
         dispatch(fetchCurrencies())
