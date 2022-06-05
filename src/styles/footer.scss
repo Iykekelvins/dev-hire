@@ -34,8 +34,7 @@
         -ms-overflow-style: none;  
         scrollbar-width: none;  
         position: absolute;
-        bottom: 0;
-        
+        bottom: 3rem;
         article{
             @extend .flex-ac;
             gap: 0.75rem;

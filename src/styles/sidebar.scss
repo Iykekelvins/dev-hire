@@ -5,12 +5,12 @@
     width: fit-content;
     height: 100vh;
     padding: 1.875rem 5.2rem 0 3.375rem;
+    &.phone-sidebar{
+        display: none;
+    }
     h1{
         span{
             color: $blue;
-        }
-        &.mobile{
-            display: none;
         }
     }
     &--links{
@@ -62,24 +62,26 @@
         }
     }
 
-    @include media("<=890px"){
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
-        h1{
-            display: none;
-            &.mobile{
-                display: unset !important;
-            }
+    @include media("<=860px"){
+        display: none;
+       
+      &.phone-sidebar{
+        position: fixed;
+        z-index: 9;
+        left: 0;
+        border: none;
+        background: $white;
+        display: unset !important;
+        padding-left: 1rem;
+        a::after{
+            left: -1.2rem;
         }
-        &--links{
-            li{
-                span{
-                    display: none;
-                }
-                &::after{
-                    left: -1.5rem;
-                }
-            }
+        .close{
+            position: absolute;
+            top: 2rem;
+            right: 0;
         }
+      }
     }
+    
 }

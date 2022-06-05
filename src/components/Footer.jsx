@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAllCurrency } from '../redux/currencySlice';
 import {fetchCurrencies, switchCurrency} from "../redux/currencySlice";
-import { ReactComponent as DropIcon } from '../svgs/carret.svg';
+import { ReactComponent as DropIcon } from '../assets/svgs/carret.svg';
 import nigeria from "../assets/nigeria.png";
 
-const Footer = ({showOptions, setShowOptions}) => {
+const Footer = () => {
     const dispatch = useDispatch();
     const year = new Date().getFullYear();
     const  currencies = useSelector(selectAllCurrency);
@@ -19,6 +19,7 @@ const Footer = ({showOptions, setShowOptions}) => {
         name:"Naira"
     })
 
+    const [showOptions, setShowOptions] = useState(false);
 
     useEffect(()=>{
         dispatch(fetchCurrencies())
@@ -44,13 +45,13 @@ const Footer = ({showOptions, setShowOptions}) => {
                     filteredCurrencies.map((currency) => (
                         <article
                         key={currency.name}
-                        onClick={()=> {
+                        onClick={(e)=> {
                             setSelected({
                                 img: currency.flag_url,
                                 name: currency.name
                             })
                             setShowOptions(false);
-                            dispatch(switchCurrency(currency))
+                            dispatch(switchCurrency(currency.divider))
                         }}
                         >
                             <img src={currency.flag_url} alt="flag" />

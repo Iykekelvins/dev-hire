@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToFav, selectFavorites } from '../redux/devsSlice';
 import { selectConvertInfo } from '../redux/currencySlice';
-import {ReactComponent as HeartIcon} from "../svgs/heart-white.svg";
+import {ReactComponent as HeartIcon} from "../assets/svgs/heart-white.svg";
 
 const Card = ({dev}) => {
   const {_id} = dev;

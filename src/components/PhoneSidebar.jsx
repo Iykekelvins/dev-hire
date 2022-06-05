@@ -1,14 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { links } from '../utils/Navlinks';
+import { ReactComponent as CloseIcon } from '../assets/svgs/close.svg';
 
-const Sidebar = () => {
+const PhoneSidebar = ({setShowNav}) => {
   return (
-    <aside className='sidebar'>
+    <div className='sidebar phone-sidebar'>
         <h1>Dev<span>Hire</span></h1>
         <ul className="sidebar--links">
         {links.map((link) => (
-            <li key={link.title}>
+            <li key={link.title}
+            onClick={()=> setShowNav(false)}
+            >
             <NavLink activeclassname="active" to={link.url} >
               <div className="svg">
               {link.svg}
@@ -18,8 +21,13 @@ const Sidebar = () => {
             </li>
         ))}
       </ul>
-    </aside>
+      <button className='close'
+      onClick={()=> setShowNav(false)}
+      >
+            <CloseIcon/>
+      </button>
+    </div>
   )
 }
 
-export default Sidebar
+export default PhoneSidebar
