@@ -23,7 +23,7 @@ const Homepage = () => {
     <section className='home'>
       <h1>Hire Top Developers</h1>
      {
-       status === "pending" ? <h2>Loading..</h2>
+       status === "pending" ? <h2 className='text-align'>Loading..</h2>
        : 
        status === "succeeded" ? 
        <div className="cards">

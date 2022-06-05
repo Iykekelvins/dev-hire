@@ -11,7 +11,7 @@ const Favorites = () => {
       <h1>Favorites</h1>
       {
         favorites.length === 0 ? 
-        <h2>No favorite developers yet...</h2>
+        <h2 className='text-align'>No favorite developers yet...</h2>
         :
       <div className="cards">
         {
