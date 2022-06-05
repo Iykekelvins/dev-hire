@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './Card';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectFavorites } from '../redux/devsSlice';
 
 const Favorites = () => {
