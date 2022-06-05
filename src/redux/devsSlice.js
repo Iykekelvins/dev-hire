@@ -24,7 +24,7 @@ export const devsSlice = createSlice({
         addToFav(state, action){
             const obj = state.favorites.find((value => value._id === action.payload._id));
             if(!obj){
-                state.favorites.push(action.payload);
+                state.favorites.unshift(action.payload);
                 toast.success(`${action.payload._source.display_name} has been added to favorites.`, {
                     position: "top-center",
                     theme: "colored",
