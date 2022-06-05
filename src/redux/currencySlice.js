@@ -25,6 +25,7 @@ export const currencySlice = createSlice({
         switchCurrency(state, action){
             state.convertInfo.divider = action.payload.divider;
             state.convertInfo.symbol = action.payload.symbol;
+            console.log(action.payload);
         }
     },
     extraReducers(builder) {

@@ -51,7 +51,7 @@ const Footer = () => {
                                 name: currency.name
                             })
                             setShowOptions(false);
-                            dispatch(switchCurrency(currency.divider))
+                            dispatch(switchCurrency(currency))
                         }}
                         >
                             <img src={currency.flag_url} alt="flag" />
