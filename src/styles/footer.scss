@@ -1,6 +1,8 @@
 .footer{
     @extend .flex-ac-jb;
-    position: relative;
+    position: absolute;
+    width: 90%;
+    bottom: 2rem;
     h4{
       color: $grey;
       font-weight: 400;

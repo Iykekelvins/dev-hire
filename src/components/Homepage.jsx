@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Card from  "./Card";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchDevs, selectAllDevs, selectError, selectStatus } from '../redux/devsSlice';
-import {fetchCurrencies} from "../redux/currencySlice";
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -18,7 +17,6 @@ const Homepage = () => {
     if (status === "pending"){
       dispatch(fetchDevs())
     }
-    dispatch(fetchCurrencies())
   },[status, dispatch])
 
   return (

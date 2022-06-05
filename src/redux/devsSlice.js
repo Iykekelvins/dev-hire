@@ -13,25 +13,26 @@ const initialState = {
 
 export const fetchDevs = createAsyncThunk('devs/fetchDevs', async () => {
     const res = await axios.get(BASE_URL);
-    // console.log(res.data.data);
     return res.data.data.service_search_results.hits;
 }) 
+
+localStorage.clear();
 
 export const devsSlice = createSlice({
     name: "devs",
     initialState,
     reducers:{
         addToFav(state, action){
-            const obj = state.favorites.find((value => value._id === action.payload._id))
+            const obj = state.favorites.find((value => value._id === action.payload._id));
             if(!obj){
                 state.favorites.push(action.payload);
                 toast.success(`${action.payload._source.display_name} has been added to favorites.`, {
                     position: "top-center",
                     theme: "colored",
-                  });
+                });
             }
             else{
-                state.favorites.pop(action.payload);
+                state.favorites = state.favorites.filter(item => item._id !== action.payload._id)
                 toast.error(`${action.payload._source.display_name} has been removed from favorites.`, {
                     position: "top-center",
                     theme: "colored",

@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAllCurrency } from '../redux/currencySlice';
+import {fetchCurrencies, switchCurrency} from "../redux/currencySlice";
 import { ReactComponent as DropIcon } from '../svgs/carret.svg';
 import nigeria from "../assets/nigeria.png";
 
 const Footer = () => {
+    const dispatch = useDispatch();
     const year = new Date().getFullYear();
     const  currencies = useSelector(selectAllCurrency);
 
@@ -18,6 +20,10 @@ const Footer = () => {
     })
 
     const [showOptions, setShowOptions] = useState(false);
+
+    useEffect(()=>{
+        dispatch(fetchCurrencies())
+    },[dispatch])
 
     return (
     <footer className='footer'>
@@ -39,12 +45,13 @@ const Footer = () => {
                     filteredCurrencies.map((currency) => (
                         <article
                         key={currency.name}
-                        onClick={(e)=> {
+                        onClick={()=> {
                             setSelected({
                                 img: currency.flag_url,
                                 name: currency.name
                             })
-                            setShowOptions(false)
+                            setShowOptions(false);
+                            dispatch(switchCurrency(currency))
                         }}
                         >
                             <img src={currency.flag_url} alt="flag" />

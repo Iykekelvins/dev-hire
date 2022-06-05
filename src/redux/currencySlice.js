@@ -6,12 +6,15 @@ const BASE_URL = "https://api.terawork.com/resources";
 const initialState = {
     currencies:[],
     status:"pending",
-    error:null
+    error:null,
+    convertInfo:{
+        symbol:"₦",
+        divider:"1"
+    }
 }
 
 export const fetchCurrencies = createAsyncThunk('currency/fetchDevs', async () => {
     const res = await axios.get(BASE_URL);
-    console.log(res.data.data.currencies);
     return res.data.data.currencies
 }) 
 
@@ -19,6 +22,10 @@ export const currencySlice = createSlice({
     name: "currency",
     initialState,
     reducers:{
+        switchCurrency(state, action){
+            state.convertInfo.divider = action.payload.divider;
+            state.convertInfo.symbol = action.payload.symbol;
+        }
     },
     extraReducers(builder) {
         builder
@@ -38,10 +45,11 @@ export const currencySlice = createSlice({
     }
 })
 
-// export const {addToFav} = currencySlice.actions;
+export const {switchCurrency} = currencySlice.actions;
 
 export const selectAllCurrency = (state) => state.currency.currencies;
 export const selectStatus = (state) => state.currency.status;
 export const selectError = (state) => state.currency.error;
+export const selectConvertInfo = (state) => state.currency.convertInfo;
 
 export default currencySlice.reducer;
