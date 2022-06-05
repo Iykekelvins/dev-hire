@@ -18,7 +18,8 @@ const Sidebar = () => {
     ]
   return (
     <aside className='sidebar'>
-        <h1>Dev<span>Hire</span></h1>
+        <h1 className='desktop'>Dev<span>Hire</span></h1>
+        <h1 className='mobile'>D<span>H</span></h1>
         <ul className="sidebar--links">
         {links.map((link) => (
             <li key={link.title}>
