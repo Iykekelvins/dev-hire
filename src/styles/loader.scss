@@ -1,0 +1,44 @@
+/**
+  * Split
+  *
+  * @author jh3y
+*/
+
+$size: 50px;
+$color-one: $grey;
+$color-two: $grey;
+
+@keyframes swap {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+.swap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  &:after,
+  &:before {
+    border-radius: 100%;
+    content: '';
+    height: $size;
+    opacity: .5;
+    position: absolute;
+    width: $size;
+  }
+
+  &:after {
+    animation: swap 1.5s -0.75s infinite;
+    background-color: $color-one;
+  }
+
+  &:before {
+    animation: swap 1.5s infinite;
+    background-color: $color-two;
+  }
+}

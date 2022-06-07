@@ -50,4 +50,7 @@
             }
         }
     }
+    @include media("<=480px"){
+        width:84%
+    }
   }
